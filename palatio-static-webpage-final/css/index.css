@@ -1,0 +1,21 @@
+#upload-image-container, #add-allergies-container,#add-preferences-container {
+    padding: 40px;
+    border-radius: 10px;
+}
+
+#fix {
+    position: fixed;
+    width: 100%;
+}
+
+#allergies {
+    padding: 40px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+#footer {
+    text-align: center;
+    padding: 10px;
+    background-color: darkgray;
+}

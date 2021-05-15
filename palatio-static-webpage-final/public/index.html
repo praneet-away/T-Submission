@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Palatio</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/7.21.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/7.21.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.21.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/7.21.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/7.21.0/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      .navbar{
+        margin-bottom:0;
+        border-radius:0;
+      }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+      }
+
+      @font-face {
+        font-family: helveticaneue;
+        src: url(./fonts/HelveticaNeue\ Thin.ttf)
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse" id="fix">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#about">Palatio</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="#about">About <span class="sr-only">(current)</span></a></li>
+            <li><a href="#add-preferences-container">Preferences </a></li>
+            <li><a href="#upload-image-container">Image Upload </a></li>
+            <li><a href="#add-allergies-container">Allergies </a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <!-- JUMBOTRON -->
+    <div class="jumbotron text-center">
+      <div class="container" id="about" style="padding-top: 20px;">
+        <p style="padding-top: 30px; padding-bottom: 30px; font-size: 6vw; font-family:helveticaneue;">welcome to <img src="./palatio1.png" style="max-width: 15vw; height: auto;" alt="logo"></p>
+        <h2>Problem Statement</h2><br>
+        <p style="text-align: justify;">“Food allergy is a common condition which occurs from selective intolerance towards a certain ingredient or nutrient present in our diet.”</p><br>
+        <p style="text-align: justify;">If you are among the nearly 500 million people around the world living with a food allergy, odds are that you might have to think twice about whatever you eat and what you should avoid. While it may be a small skin rash or a throat pain for some people, food allergy can also have serious implications on the others, where the patient might even need to be hospitalised. In the USA alone, food allergies are responsible for about 30,000 anaphylactic episodes per year resulting in 2,000 hospitalizations and 200 deaths. The severe reactions aren’t always triggered from ingestion, but also from skin contact or inhalation. That can make your allergen incredibly hard to avoid. </p><br><br>
+
+        <h2>Why do we care?</h2><br>
+        <p style="text-align: justify;">Food allergy as a condition is not taken as seriously as should be in the current times. Various people ignore the consequences of allergy, believing that it won’t be that serious. While the global community is still in the process of studying the implications this allergy can have on an individual, there are steps that a person can take about keeping himself from knowing those by keeping his diet in check.</p><br>
+        <p style="text-align: justify;">Not taking any medical condition seriously is a mistake that so many people make which might lead to severe illness and conditions that can cause permanent damage to the health of the individual.</p><br><br>
+
+        <h2>Our Solution</h2><br>
+        <p style="text-align: justify;">Palatio is a website that works to make the life of people with food allergies easier. The website contains an interactive UI where the person can not only check the food items and dishes that he must avoid based on the allergy he possesses, but also upload images of the ingredients mentioned in the food packets and check whether there is any secret ingredient that might be harmful for him. </p><br><br>
+
+        <h2>Our Tech</h2><br>
+        <p style="text-align: justify;">Working on a strong dataset and progressive data collection, Palatio has a robust database of over 200 unique food items, classified by type, group and class, corresponding to their respective allergies.</p><br>
+        <p style="text-align: justify;">The input image is put through Tesseract, and the text extracted is cross referenced with the database to provide a comprehensive list of allergies caused by the allergens present in the ingredients. Altogether, Palatio utilizes Google Colab, Python, Google Firebase, Bootstrap, JavaScript, Google Cloud Storage and more.</p><br><br>
+
+        <h2>Our Future Plans</h2><br>
+        <p style="text-align: justify;">After building the website, we will look to add a few features that will help in commercializing and creating a bigger reach.</p><br>
+
+        <div class="list-group">
+          <a class="list-group-item" id="list-border" style="text-align: justify;">The first thing in the agenda is to convert this into a mobile friendly platform, so that it can reach a wider audience with the coming time.</a>
+          <a class="list-group-item" id="list-border" style="text-align: justify;">We will soon be adding a dishes section which will provide an alternative to an ingredient that a person is allergic to in his favourite dish, so that he does not have to stop eating his that item entirely.</a>
+          <a class="list-group-item" id="list-border" style="text-align: justify;">We want to add another section for people following certain diet plans, where we would provide them with the perfect diet in accordance to his/her food intolerance or allergy.</a>
+        </div>
+
+
+      </div>
+    </div>
+
+    <br>
+    <br>
+      
+    <div class="container">
+      <div class="container-fluid" style="border:1px solid #000000;" id="add-preferences-container">
+        <h1>Add Preferences</h1>
+        <div class="container col-md-6 col-sm-6 col-xs-6" id="likes">
+          <h3>Likes</h3>
+
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+        <div class="container col-md-6 col-sm-6 col-xs-6" id="dislikes">
+          <h3>Dislikes</h3>
+          
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+      </div>
+
+      <div class="container" style="height: 100px;"></div>
+
+      <div class="container-fluid" style="border:1px solid #000000;" id="upload-image-container">
+        <h1>Upload Image</h1>
+        <br>
+        <input type="file">
+        <br>
+        <p class="help-block">Only .jpg allowed</p>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+
+      <div class="container" style="height: 100px;"></div>
+
+      <div class="container-fluid" style="border:1px solid #000000;" id="add-allergies-container">
+        <h1>Add Allergies</h1>
+        <div class="container col-md-9 col-sm-9 col-xs-9">
+          <textarea class="form-control" id="allergies" name="allergies" rows="4" cols="50">Enter Allergies</textarea>
+        </div>
+        <div class="container col-md-3 col-sm-3 col-xs-3"></div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+      </div>
+      
+      <div class="container" style="height: 100px;"></div>
+
+      <br><br>
+
+    </div>
+    
+    <footer class="footer">
+      <div class="footer" id="footer">
+        <h3>Palatio &copy; 2020</h3>
+        <span>Arnaav Anand | Aadya Saxena | Rashi Jhawar | Aayush Ashok | Pratyush Agarwal</span>
+      </div>
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.21.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.21.0/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
+  </body>
+</html>
